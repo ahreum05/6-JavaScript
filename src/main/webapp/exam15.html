@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function sum(x, y) {
+		return x+y;
+	}
+	
+	function printResult() {
+		//alert("test");
+		var result = sum(10, 50);
+		// 태그 얻어오기
+		var spanTag = document.querySelector("#question");
+		//alert(spanTag.innerHTML)
+		// 태그에 결과값 출력
+		spanTag.innerHTML = result;
+	}
+</script>
+</head>
+<body>
+	<h1>10 + 50 = <span id="question">?</span></h1>
+	<!-- onclick="함수호출 또는 자바스크립트 명령어" -->
+	<input type="button" value="결과보기" onclick="printResult()">
+</body>
+</html>

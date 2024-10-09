@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// document : 현재 페이지의 태그를 관리하는 객체
+	function doSubmit() {
+		//alert("test");
+		// form 객체 얻어오기
+		var frm = document.form1;
+		
+		// 입력태그의 입력값 검사
+		if(!frm.user_name.value) {
+			alert("이름을 입력해 주세요.");
+			frm.user_name.focus();  // 태그에 커서 넣기
+			return false;  // 함수 강제 종료
+		}
+		// 라디오 버튼의 입력 검사
+		if(!frm.gender[0].checked && !frm.gender[1].checked) {
+			alert("성별을 선택해 주세요.")			
+			return false;
+		}
+		// select 태그 입력 검사
+		if(frm.job.selectedIndex < 1) {
+			alert("직업을 선택해 주세요.")
+			frm.job.focus();
+			return false;
+		}
+		// checkbox 입력검사
+		var chk = false;
+		for(var i=0; i<frm.hobby.length; i++) {
+			if(frm.hobby[i].checked) { // 선택되어 있다면
+				chk = true;
+				break;
+			}
+		}
+		if(!chk) {
+			alert("취미를 선택해 주세요.")
+			return false;
+		}
+		
+		// 서버로 데이터 전송
+		if(confirm("입력하신 내용이 맞습니가?")) {
+			frm.submit();
+		}
+	}
+</script>
+</head>
+<body>
+	<form action="" name="form1">
+		<fieldset style="width: 250px; height: 150px;">
+			<legend>회원가입</legend>
+			<div>
+	            <label>이름</label>
+	            <input type="text" name="user_name" maxlength="20">
+	        </div>
+	        
+	        <div>
+	            <label>성별</label>
+	            <input type="radio" name="gender" id="g1" value="남자">
+	            <label for="g1">남자</label>
+	            <input type="radio" name="gender" id="g2" value="여자">
+	            <label for="g2">여자</label>
+	        </div>
+	        
+			<div>
+	            <label>직업</label>
+	            <select name="job">
+	               <option>-----선택하세요-----</option>
+	               <option>소방관</option>
+	               <option>개발자</option>
+	               <option>학생</option>
+	            </select>
+	        </div>
+			
+			<div>
+	            <label>취미</label>
+	            <input type="checkbox" name="hobby" id="h1" value="축구">
+	            <label for="h1">축구</label>
+	            <input type="checkbox" name="hobby" id="h2" value="농구">
+	            <label for="h2">농구</label>
+	            <input type="checkbox" name="hobby" id="h3" value="야구">
+	            <label for="h3">야구</label>
+	        </div>
+			
+			<div>
+               <input type="button" value="제출" onclick="doSubmit()">
+               <input type="reset" value="리셋">
+            </div>
+			
+		</fieldset>
+	</form>
+</body>
+</html>

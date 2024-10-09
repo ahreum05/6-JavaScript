@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+  // javascript으로 태그를 읽어오는 작업을 할 때는 브라우저가 모든 태그를
+    // 인식한 이후에 작업을 해야한다. 그렇지 않으면 태그를 인식못한다.
+	var q = prompt("사칙연산의 수식을 입력하세요.(예: 100+500)");
+	if (q != null && q != "") {
+		var a = eval(q);
+		document.getElementById("question").innerHTML = 
+			q + " = " + a;
+	}
+
+	function showQ() {
+		var q = prompt("사칙연산의 수식을 입력하세요.(예: 100+500)");
+		if (q != null && q != "") {
+			var a = eval(q);
+			document.getElementById("question").innerHTML = 
+				q + " = " + a;
+		}
+	}
+</script>
+</head>
+<!-- onload : 웹브라우저가 모든 HTML 태그의 인식이 완료된 후,
+			동작되는 이벤트
+ -->
+<body onload="showQ()">
+	<h1 id="question"></h1>
+	<input type="button" value="확인" onclick="showQ()">
+</body>
+</html>

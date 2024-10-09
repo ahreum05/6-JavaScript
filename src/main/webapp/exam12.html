@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	document.write("** eval 내장함수 **<br>")
+	
+	var str = "100 + 1";
+	document.write(str + "<br>");
+	// eval : 문자열로 구성된 계산식을 계산식으로 변경하는 함수
+	var result = eval(str);
+	document.write(result + "<br><br>")
+	document.write("<hr>")
+	
+	document.write("** Number, parseInt 내장함수 **<br>");
+	var str1 = "100.5";
+	var num1 = Number(str1);
+	var num2 = parseInt(str1);
+	
+	var result = num1 + num2;
+	document.write(num1 + "<br>");
+	document.write(num2 + "<br>");
+	document.write(result + "<br><br>")
+	document.write("<hr>")
+</script>
+</head>
+<body>
+
+</body>
+</html>
